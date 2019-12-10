@@ -30,8 +30,9 @@ namespace Employees_API.Controllers
             }
             catch(Exception ex)
             {
-                _logger.LogError($"There was a problem fetching the employees list or The employee {id} does not exist. Error: { ex.Message }");
-                return Conflict($"There was a problem fetching the employees list or The employee {id} does not exist");
+                string errorMessage = $"There was a problem fetching the employees list or The employee { id} does not exist.";
+                _logger.LogError($"{errorMessage}. Error: { ex.Message }");
+                return Conflict(errorMessage);
             }
         }
 
