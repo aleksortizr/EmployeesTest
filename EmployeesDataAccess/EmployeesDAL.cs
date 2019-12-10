@@ -8,8 +8,6 @@ namespace Employees_DataAccess
 {
     public class EmployeesDAL
     {
-        private static HttpClient client = new HttpClient();
-
         public string APIAddress { get; set; }
 
         public async Task<List<EmployeesDTO>> GetAllEmployees()
