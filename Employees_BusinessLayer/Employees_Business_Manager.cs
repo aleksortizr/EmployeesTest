@@ -17,27 +17,37 @@ namespace Employees_BusinessLayer
             _employeesDAL = new EmployeesDAL();
         }
 
+        /// <summary>
+        /// Gets the list of employees from MAS API and then invokes the Factory Method to set the Annual Salary
+        /// </summary>
+        /// <param name="id">If null, all employees are set</param>
+        /// <returns></returns>
         public async Task<List<EmployeesDTO>> GetEmployeesAsync(int? id)
         {
-            List <EmployeesDTO> filteredEmployees = new List<EmployeesDTO>();
             List <EmployeesDTO> allEmployees = await GetAllEmployees();
+            List<EmployeesDTO> filteredEmployees = new List<EmployeesDTO>();
 
-            if(id.HasValue)
+            if (id.HasValue)
             {
                 filteredEmployees.Add(allEmployees.Find(e => e.Id == id.Value));
             }
             else
                 filteredEmployees = allEmployees;
 
-            // llops through the resulting employees and calculates the annual salary using factory method
+            // loops through the resulting employees and calculates the annual salary using factory method
             foreach(var emp in filteredEmployees)
             {
-                GetAnnualSalary(emp);
+                SalaryFactory concreteSalary = GetConcreteSalary(emp);
+                emp.AnnualSalary = concreteSalary.GetSalary();
             }
 
             return filteredEmployees;
         }
 
+        /// <summary>
+        /// Get the list from MAS API
+        /// </summary>
+        /// <returns></returns>
         private Task<List<EmployeesDTO>> GetAllEmployees()
         {
             return _employeesDAL.GetAllEmployees();
@@ -48,7 +58,7 @@ namespace Employees_BusinessLayer
         /// Not using DI, just geting a salary object to pull the annual salary
         /// </summary>
         /// <param name="employee"></param>
-        private void GetAnnualSalary(EmployeesDTO employee)
+        private SalaryFactory GetConcreteSalary(EmployeesDTO employee)
         {
             SalaryFactory salaryFactory = null;
                     _ = Enum.TryParse(employee.ContractTypeName, out ContractTypes contractType);
@@ -64,7 +74,7 @@ namespace Employees_BusinessLayer
                     break;
             }
 
-            employee.AnnualSalary = salaryFactory.GetSalary();
+            return salaryFactory;
         }
     }
 }

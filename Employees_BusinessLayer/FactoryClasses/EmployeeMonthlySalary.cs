@@ -6,10 +6,6 @@ namespace Employees_BusinessLayer
     {
         private readonly ContractTypes _contractType;
 
-        private decimal _monthlySalary;
-
-        private decimal _hourlySalary;
-
         private decimal _annualSalary;
 
         public override decimal MonthlySalary { get; set; }
@@ -37,9 +33,9 @@ namespace Employees_BusinessLayer
         public EmployeeMonthlySalary(decimal hourlySalary, decimal monthlySalary)
         {
             _contractType = ContractTypes.MonthlySalaryEmployee;
-            _hourlySalary = hourlySalary;
-            _monthlySalary = monthlySalary;
-            _annualSalary = _monthlySalary * 12;
+            HourlySalary = hourlySalary;
+            MonthlySalary = monthlySalary;
+            _annualSalary = MonthlySalary * 12;
         }
     }
 }

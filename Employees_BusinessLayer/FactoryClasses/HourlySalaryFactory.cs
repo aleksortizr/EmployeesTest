@@ -6,9 +6,6 @@
 
         private decimal _hourlySalary;
 
-        private decimal _annualSalary;
-
-
         public HourlySalaryFactory(decimal hourlySalary, decimal monthlySalary)
         {
             _hourlySalary = hourlySalary;
