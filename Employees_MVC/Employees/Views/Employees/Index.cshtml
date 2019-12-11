@@ -1,0 +1,39 @@
+﻿@model Employees.Models.EmployeeQuery
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Employees List</h1>
+
+
+@using (Html.BeginForm("Index", "Employees", FormMethod.Post))
+{
+    @Html.Label("Employee Id")
+    @Html.TextBoxFor(model => model.EmployeeId)
+    <button type="submit">Search</button>
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Contract Type</th>
+            <th>Role Name</th>
+            <th>Annual Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach (var item in Model.Employees)
+
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.ContractTypeName</td>
+                    <td>@item.RoleName</td>
+                    <td>@item.AnnualSalary</td>
+                </tr>
+            }
+    </tbody>
+</table>

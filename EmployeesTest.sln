@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees_DataAccess", "EmployeesDataAccess\Employees_DataAccess.csproj", "{E3BF7BE8-BA1D-44A5-98DE-7C32627AE2B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees_DataAccess", "EmployeesDataAccess\Employees_DataAccess.csproj", "{E3BF7BE8-BA1D-44A5-98DE-7C32627AE2B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees_BusinessLayer", "Employees_BusinessLayer\Employees_BusinessLayer.csproj", "{DE794E2D-FD2B-4528-95D5-DE6196B77F66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees_BusinessLayer", "Employees_BusinessLayer\Employees_BusinessLayer.csproj", "{DE794E2D-FD2B-4528-95D5-DE6196B77F66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees_API", "EmployeesAPI\Employees_API\Employees_API.csproj", "{F09A5779-96D5-4149-8EFC-AEDBD1E6515B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees_API", "EmployeesAPI\Employees_API\Employees_API.csproj", "{F09A5779-96D5-4149-8EFC-AEDBD1E6515B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees_Common", "Employees_Common\Employees_Common.csproj", "{2EF15C18-1D67-447C-8550-611F38E92887}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees_Common", "Employees_Common\Employees_Common.csproj", "{2EF15C18-1D67-447C-8550-611F38E92887}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees_MVC", "Employees_MVC\Employees\Employees_MVC.csproj", "{B0F10678-EEA4-4654-8619-D88041CE7F5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{2EF15C18-1D67-447C-8550-611F38E92887}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EF15C18-1D67-447C-8550-611F38E92887}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EF15C18-1D67-447C-8550-611F38E92887}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0F10678-EEA4-4654-8619-D88041CE7F5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0F10678-EEA4-4654-8619-D88041CE7F5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0F10678-EEA4-4654-8619-D88041CE7F5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0F10678-EEA4-4654-8619-D88041CE7F5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
