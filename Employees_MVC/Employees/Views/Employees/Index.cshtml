@@ -9,9 +9,16 @@
 
 @using (Html.BeginForm("Index", "Employees", FormMethod.Post))
 {
-    @Html.Label("Employee Id")
-    @Html.TextBoxFor(model => model.EmployeeId)
-    <button type="submit">Search</button>
+    <div class="form">
+        <div class="form-group">
+            @Html.Label("Employee Id: ")
+            @Html.TextBoxFor(model => model.EmployeeId, new { data_bind = "value: Name", @class = "form-control", @placeholder = "employee id" })
+            <small id="searchHelp" class="form-text text-muted">Leave blank for all employees.</small>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </div>
+    <br />
+    <br />
 }
 
 
@@ -25,8 +32,9 @@
         </tr>
     </thead>
     <tbody>
+        @if (Model.Employees != null && Model.Employees.Count() > 0)
+        {
             @foreach (var item in Model.Employees)
-
             {
                 <tr>
                     <td>@item.Name</td>
@@ -35,5 +43,14 @@
                     <td>@item.AnnualSalary</td>
                 </tr>
             }
+        }
+        else
+        {
+            <tr>
+                <td>
+                    <small id="searchHelp" class="form-text text-muted">Query returned no elements.</small>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

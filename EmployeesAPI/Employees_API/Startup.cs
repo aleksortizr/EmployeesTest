@@ -52,7 +52,7 @@ namespace Employees_API
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
-            app.UseSwaggerUI(s => s.SwaggerEndpoint("/swagger/v1/swagger.json", "SGOAT API v1"));
+            app.UseSwaggerUI(s => s.SwaggerEndpoint("/swagger/v1/swagger.json", "Employees MAS v1"));
 
             app.UseEndpoints(endpoints =>
             {
